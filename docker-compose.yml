@@ -1,0 +1,26 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: offlinepay-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      DB_PATH: /data/payments.db
+      BANK_KEY_FILE: /data/bank_private.pem
+      ALLOW_DEMO_RESET: "1"
+      FRONTEND_ORIGINS: "*"
+    volumes:
+      - offlinepay_data:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0) if urllib.request.urlopen('http://127.0.0.1:8000/api/health').status==200 else sys.exit(1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  offlinepay_data:
+    name: offlinepay_data

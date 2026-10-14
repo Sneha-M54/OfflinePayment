@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>OfflinePay</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">OfflinePay</div>
+    <div class="status">
+      <span id="net-indicator" class="dot offline" title="network"></span>
+      <span id="net-label">offline</span>
+    </div>
+    <button id="logout-btn" class="ghost hidden">Log out</button>
+  </header>
+
+  <main id="app">
+    <!-- Views are rendered here by app.js -->
+  </main>
+
+  <footer class="footer">
+    Educational demo. Synthetic data only. Not a real payment system.
+  </footer>
+
+  <script src="./config.js"></script>
+  <script src="./crypto.js"></script>
+  <script src="./storage.js"></script>
+  <script src="./api.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
