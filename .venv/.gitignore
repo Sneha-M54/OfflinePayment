@@ -1,0 +1,9 @@
+.venv/
+venv/
+backend/.venv/
+__pycache__/
+*.pyc
+.env
+*.pem
+*.db
+pytest_out.txt
